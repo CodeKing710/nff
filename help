@@ -1,0 +1,8 @@
+Usage: nff
+
+Options:
+  -V | --verbose      Show verbose output logging
+
+  -v | --version      Show version info
+
+  -h | --help         Show this menu and exit
