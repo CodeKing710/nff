@@ -1,0 +1,45 @@
+#!/usr/bin/nft -f
+
+destroy table inet nff;
+table inet nff {
+    set tcp_in_allow {
+      type inet_service;
+      elements = { 22 }
+    }
+    set udp_in_allow {
+      type inet_service;
+      elements = { 53 }
+    }
+    set tcp_out_allow {
+      type inet_service;
+    }
+    set udp_out_allow {
+      type inet_service;
+    }
+
+    chain input {
+      type filter hook input priority 0;
+      policy drop;
+
+      ct state established,related accept
+      iif lo accept
+      tcp dport @tcp_in_allow accept
+      udp dport @udp_in_allow accept
+    }
+
+    chain output {
+      type filter hook output priority 0;
+      policy accept;
+
+      ct state established,related accept
+      oif lo accept
+
+      tcp dport @tcp_out_allow accept
+      udp dport @udp_out_allow accept
+    }
+
+    chain forward {
+        type filter hook forward priority 0;
+        policy drop;
+    }
+}
