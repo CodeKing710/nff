@@ -1,3 +1,4 @@
+exclusive: false
 default-policies:
   input: deny
   output: allow
