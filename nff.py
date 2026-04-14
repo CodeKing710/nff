@@ -182,7 +182,7 @@ def main():
   if hasattr(args, 'func'):
     args.func(config, args)
   else:
-    print("Ran into an unknown error!" file=sys.stderr)
+    print("Ran into an unknown error!", file=sys.stderr)
     sys.exit(1)
 
 if __name__ == "__main__":
