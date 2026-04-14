@@ -182,8 +182,8 @@ def main():
   if hasattr(args, 'func'):
     args.func(config, args)
   else:
-    with open(SHARE_PATH / "help",'r') as f:
-      print(f.read())
+    print("Ran into an unknown error!" file=sys.stderr)
+    sys.exit(1)
 
 if __name__ == "__main__":
   main()
