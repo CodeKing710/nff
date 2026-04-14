@@ -40,19 +40,16 @@ def load_cfg():
 # Processing function
 def nff_to_nft(config):
   rules = {
-    'exclusive': 'flush ruleset' if config.get('exclusive', True) else ''
+    'exclusive': 'flush ruleset\n' if config.get('exclusive', True) else '\n'
   }
-  if config.get('exclusive', True):
-    rules['exclusive'] = 'flush ruleset'
-    verbose("Exclusive mode activated")
-    
+
   for proto in ['tcp', 'udp']:
     for direction in ['in', 'out']:
       key = f"{proto}_{direction}"
       ports = config.get(proto, {}).get(direction, {}).get('allow', [])
       if ports:
         ports = ", ".join(map(str, ports))
-        rules[key] = f"elements = {{ {ports} }}"
+        rules[key] = f" elements = {{ {ports} }}"
       else:
         rules[key] = ''
 
@@ -68,18 +65,18 @@ def nff_to_nft(config):
 destroy table inet nff
 table inet nff {{
     set tcp_in {{
-        type inet_service; flags interval; {t_in}
+        type inet_service; flags interval;{t_in}
     }}
     set tcp_out {{
-        type inet_service; flags interval; {t_out}
+        type inet_service; flags interval;{t_out}
     }}
     set udp_in {{
-        type inet_service; flags interval; {u_in}
+        type inet_service; flags interval;{u_in}
     }}
     set udp_out {{
-        type inet_service; flags interval; {u_out}
+        type inet_service; flags interval;{u_out}
     }}
-    
+
     chain input {{
       type filter hook input priority 0;
       policy {default_in};

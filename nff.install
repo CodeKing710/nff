@@ -2,7 +2,7 @@ post_install() {
   echo ":: NFF has been installed."
   echo ":: If you want nff to manage the entire nftables rulesets, please run \`nff apply exclusive\`"
 
-  nft flush ruleset
+  /usr/bin/nft flush ruleset
   systemctl restart nftables
 
   echo ":: NFF ruleset has been applied alongside the existing rulesets. There may be conflicts between the tables. If so, please resolve them by setting exclusive or purposefully destroying the other rulesets"
@@ -14,7 +14,7 @@ post_upgrade() {
 
 pre_remove() {
   echo ":: Flushing NFF ruleset..."
-  nft flush ruleset 2>/dev/null
+  /usr/bin/nft flush ruleset 2>/dev/null
   echo ":: Flushed NFF ruleset."
 }
 post_remove() {
