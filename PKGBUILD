@@ -1,13 +1,13 @@
 pkgname=nff
-pkgver=0.1.0
+pkgver=1.0.0
 pkgrel=1
 pkgdesc="An nftables firewall tool built in Python. Not as robust as direct nftables usage but nice to load static rules similar to ufw"
 arch=('any')
 depends=('python' 'python-yaml' 'nftables')
 backup=('etc/nff.yml' 'etc/nftables.d/00-nff.nft')
 install=nff.install
-source=('nff.py' 'nff-defaults.yml' '00-nff.nft' 'help' 'version')
-sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
+source=('nff.py' 'nff-defaults.yml' '00-nff.nft' 'version')
+sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP')
 
 package() {
   # Create necessary directories
