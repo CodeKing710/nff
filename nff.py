@@ -65,16 +65,16 @@ def nff_to_nft(config):
 destroy table inet nff
 table inet nff {{
     set tcp_in {{
-        type inet_service; flags interval{t_in}
+        type inet_service{t_in}
     }}
     set tcp_out {{
-        type inet_service; flags interval{t_out}
+        type inet_service{t_out}
     }}
     set udp_in {{
-        type inet_service; flags interval{u_in}
+        type inet_service{u_in}
     }}
     set udp_out {{
-        type inet_service; flags interval{u_out}
+        type inet_service{u_out}
     }}
 
     chain input {{
