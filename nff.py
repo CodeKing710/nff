@@ -126,7 +126,7 @@ def show_rules(config, args):
     # Print out the YAML config in a nice way
     print(config)
 
-def apply_rules(config):
+def apply_rules(config, args):
   new_config = nff_to_nft(config)
   if NFT_CONFIG.exists():
     verbose(f"Backing up existing config to {NFT_CONFIG}.bak")
