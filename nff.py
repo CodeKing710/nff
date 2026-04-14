@@ -41,7 +41,7 @@ def load_cfg():
 # Processing function
 def nff_to_nft(config):
   rules = {
-    'exclusive': 'flush ruleset\n' if config.get('exclusive', True) else '\n'
+    'exclusive': 'destroy table inet filter\n' if config.get('exclusive', True) else '\n'
   }
 
   for proto in ['tcp', 'udp']:
