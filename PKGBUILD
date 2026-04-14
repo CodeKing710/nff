@@ -28,6 +28,5 @@ package() {
   install -Dm644 00-nff.nft "$pkgdir/usr/share/nff/00-nff.nft"
 
   # Install Misc data
-  install -Dm644 help "$pkgdir/usr/share/nff/help"
   install -Dm644 version "$pkgdir/usr/share/nff/version"
 }
