@@ -1,7 +1,7 @@
 exclusive: false
 default-policies:
-  input: deny
-  output: allow
+  input: drop
+  output: accept
 
 tcp:
   in:
