@@ -135,7 +135,14 @@ def apply_rules(config, args):
     verbose(f"Applying NFF rules...")
     subprocess.run(["nft","-f",str(NFT_CONFIG)], check=True)
 
-  print("NFF rules applied!")
+  print(f"NFF rules generated and written to {NFT_CONFIG}")
+  print("Would you like to apply these rules now? (Y/n)")
+  response = input().strip().lower()
+  if response in ['y', 'yes']:
+    subprocess.run(["systemctl", "restart", "nftables"], check=True)
+    print("NFF rules applied!")
+  else:
+    print("NFF rules not applied.")
 
 def arg_parser():
   parser = argparse.ArgumentParser(description="nff: A simple nftables firewall tool")
