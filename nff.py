@@ -161,6 +161,10 @@ def arg_parser():
   return parser
 
 def main():
+  if os.geteuid() != 0:
+    print("Error: nff must be run as root (use sudo).", file=sys.stderr)
+    sys.exit(1)
+
   global VERBOSE
   parser = arg_parser()
   args = parser.parse_args()
