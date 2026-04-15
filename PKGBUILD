@@ -1,5 +1,5 @@
 pkgname=nff
-pkgver=v1.0.1
+pkgver=1.0.1
 pkgrel=1
 pkgdesc="An nftables firewall tool built in Python. Not as robust as direct nftables usage but nice to load static rules similar to ufw"
 arch=('any')
