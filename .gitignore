@@ -1,3 +1,4 @@
-#nff*.pkg.tar.zst
+nff*.pkg.tar.zst
 src/**
 pkg/**
+*.tar.gz
