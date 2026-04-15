@@ -1,6 +1,6 @@
 pkgbase = nff
 	pkgdesc = An nftables firewall tool built in Python. Not as robust as direct nftables usage but nice to load static rules similar to ufw
-	pkgver = 1.0.0
+	pkgver = 1.0.1
 	pkgrel = 1
 	url = https://github.com/CodeKing710/nff
 	install = nff.install
