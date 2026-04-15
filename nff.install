@@ -1,6 +1,7 @@
 post_install() {
   echo ":: NFF has been installed."
-  echo ":: If you want nff to manage the entire nftables rulesets, please run \`nff apply exclusive\`"
+  echo ":: If you want nff to manage the entire nftables rulesets, please change 'exclusive' to 'true' in /etc/nff.yml"
+  echo ":: Please make sure the gateway interface in /etc/nftables.d/00-nff.nft is set properly, otherwise run \`sudo nff apply\` to have it generate that for you"
 
   /usr/bin/nft flush ruleset
   systemctl restart nftables
@@ -21,4 +22,5 @@ post_remove() {
   echo ":: Disabling and removing NFF rulesets (configs untouched unless purging)..."
   rm -f /etc/nftables.d/00-nff.nft
   echo ":: Disabled and removed old NFF rulesets. nftables is back to using existing rulesets"
+  /usr/bin/nft -f /etc/nftables.conf
 }
