@@ -9,8 +9,8 @@ depends=('python' 'python-yaml' 'nftables')
 backup=('etc/nff.yml' 'etc/nftables.d/00-nff.nft')
 install=nff.install
 # source=('nff.py' 'nff-defaults.yml' '00-nff.nft' 'version')
-source=("${pkgname}-${pkgver}.tar.gz::https://github.com/CodeKing710/nff/archive/v${pkgver}.tar.gz")
-sha256sums=('SKIP')
+source=("v${pkgver}.tar.gz::https://github.com/CodeKing710/nff/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=('add1d33042865c362114848b59f7f8a0174037f1f3d7bc63c8adb34a39602d5c')
 
 package() {
   # Create necessary directories
